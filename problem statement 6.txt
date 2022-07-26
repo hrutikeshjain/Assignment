@@ -1,0 +1,254 @@
+=======================================================================================
+using System;
+using System.IO;
+class MyFunction
+
+{
+    static void Main()
+    {
+        DriveInfo[] di = DriveInfo.GetDrives();
+        foreach(DriveInfo info in di)
+        {
+            Console.WriteLine(info.Name);
+        }
+    }
+}
+=========================================================================================
+using System;
+using System.IO;
+class MyFunction
+
+{
+    static void Main()
+    {
+        DriveInfo[] di = DriveInfo.GetDrives();
+        foreach(DriveInfo info in di)
+        {
+            Console.WriteLine(info.Name);
+        }
+        //partition details
+        Console.WriteLine("Enter the partition to get detaisl");
+        string ch = Console.ReadLine();
+        DriveInfo dinfo = new DriveInfo(ch);
+       Console.WriteLine("Drive Name:{0}", dinfo.Name);
+       Console.WriteLine("Total size:{0}", dinfo.TotalSize);
+        Console.WriteLine("Free space:{0}", dinfo.TotalFreeSpace);
+        Console.WriteLine("Drive type:{0}", dinfo.DriveType);
+    }
+}
+=========================================================================================
+using System;
+using System.IO;
+class Program
+{
+    static void Main()
+    {
+        //crate dir (folder)
+        DirectoryInfo di = new DirectoryInfo(@"E:\Hrutikesh");
+        //create dir in same project
+        di.Create();
+        Console.WriteLine("Dir created successfully...");
+    }
+}
+=========================================================================================
+using System;
+using System.IO;
+class Program
+{
+    static void Main()
+    {
+        FileInfo file = new FileInfo(@"E:\Hrutikesh\Mphasis.pdf");
+        file.Create();
+        Console.WriteLine("File is created successfuly....");
+    }
+}
+==========================================================================================
+create fike--
+using System;
+using System.IO;
+class Program
+{
+    static void Main()
+    {
+        // FileInfo file = new FileInfo(@"E:\Hrutikesh\test.txt");
+       // File.Create();
+       StreamWriter mw = null;
+        string data = "hi this is file handlng in c#";
+        mw = File.CreateText(@"E:\Hrutikesh\test.txt");
+        mw.Write(data);
+        Console.WriteLine("File has been created with contents...");
+        mw.Close();
+    }
+}
+==========================================================================================
+write text-
+using System;
+using System.IO;
+class Program
+{
+    static void Main()
+    {
+        FileStream f = new FileStream("E:\\bb2.txt", FileMode.OpenOrCreate);
+        StreamWriter s = new StreamWriter(f);
+        s.WriteLine("C# is very important for dotnet deve");
+        s.Close();
+        f.Close();
+    }
+}
+============================================================================================
+read text--
+using System;
+using System.IO;
+class Program
+{
+    static void Main()
+    {
+      FileStream f = new FileStream("E:\\bb2.txt", FileMode.OpenOrCreate);
+        StreamReader dr = new StreamReader(f);
+        string l = dr.ReadLine();
+        Console.WriteLine(l);
+        dr.Close();
+        f.Close();
+    }
+}
+============================================================================================
+delet file--
+using System;
+using System.IO;
+class Program
+{
+    static void Main()
+    {
+        FileInfo file = new FileInfo(@"E:\bb2.txt");
+        file.Delete();
+        Console.WriteLine("File has been deleted...");
+    }
+}
+=============================================================================================
+copy text--
+using System;
+using System.IO;
+class Program
+{
+    static void Main()
+    {
+         FileInfo file = new FileInfo(@"E:\test.txt");
+        file.CopyTo(@"E:\Hrutikesh\test.txt", true);
+        
+    }
+}
+==============================================================================================
+move text--
+using System;
+using System.IO;
+class Program
+{
+    static void Main()
+    {
+         FileInfo file = new FileInfo(@"E:\test.txt");
+
+        file.MoveTo(@"E:\Hrutikesh\test.txt");
+
+    }
+}
+==================================================================================================
+append text-
+using System;
+using System.IO;
+class Program
+{
+    static void Main()
+    {
+        // FileInfo file = new FileInfo(@"E:\test.txt");
+        string path = @"E:\Hrutikesh\test.txt";
+        StreamWriter sw1 = File.AppendText(path);
+        sw1.WriteLine("this is last ");
+        sw1.WriteLine("topic");
+        sw1.WriteLine("of file handling");
+        sw1.Close();
+    }
+}
+==========================================================================================
+using System;
+using System.Text;
+using System.Text.RegularExpressions;
+class Program
+{
+    static void Main()
+    {
+        //^ special char
+        Regex regex = new Regex(@"^Shyam");
+        //this will return if Shyam exist
+        //at begining of hte line
+        Match match = regex.Match("Shyam is my friend");
+        if (match.Success)
+        {
+            Console.WriteLine("match vlaue:" + match.Value);
+        }
+    }
+}
+============================================================================================
+using System;
+using System.Text;
+class Program
+{
+    static void Main()
+    {
+       
+        DateTime dt3 = new DateTime(2022, 06, 14,12,30,20);
+        string[] formatofDate = dt3.GetDateTimeFormats();
+        foreach(string f in formatofDate)
+        {
+            Console.WriteLine(f);
+        }
+       
+    }
+}
+=========================================================================================
+using System;
+using System.Text;
+class Program
+{
+    static void Main()
+    {
+        //assign default value 01/01/0001 00:00:00
+        DateTime dt1 = new DateTime();
+        Console.WriteLine(dt1);
+        //Assign year, month, day
+        DateTime dt2 = new DateTime(2022, 06, 14);
+        Console.WriteLine(dt2);
+        //year, month, day,hour,min,seconds
+        DateTime dt3 = new DateTime(2022, 06, 14, 5, 10, 20);
+        Console.WriteLine(dt3);
+  // get Day only
+        Console.WriteLine("Day :{0}", dt3.Day);
+        Console.WriteLine("Month :{0}", dt3.Month); //year/month/day/hur/minute/second/Millisecond
+        //Dayof Week
+        Console.WriteLine("Day of week:{0}", dt3.DayOfWeek);
+        //day of the year
+        Console.WriteLine("Day of year:{0}", dt3.DayOfYear);
+        //Timeof day
+        Console.WriteLine("Timeof the day:{0}", dt3.TimeOfDay);
+    }
+}
+=======================================================================================
+using System;
+using System.Text;
+class MyFunction
+
+{
+    static void Main()
+    {
+        Console.WriteLine("enter a string;");
+        String MyName = Console.ReadLine();
+
+        StringBuilder bs = new StringBuilder(MyName);
+        bs.Remove(2, 3); 
+        bs.Insert(2, "om");
+        bs.Replace('l', 'a'); 
+        bs.Append(", jain");
+        MyName = bs.ToString();
+        Console.WriteLine("\n" + MyName);
+    }
+}
+====================================================================================

@@ -1,0 +1,453 @@
+===========================================================================================
+                                      Problem Statement 1
+===========================================================================================
+1) even or odd=>
+
+code=>
+using System;
+
+     class Program
+    {
+        public static void Main(string[] args)
+        {
+        Console.Write("Enter The Number: ");
+        int Number = int.Parse(Console.ReadLine());
+        if (Number % 2 == 0)
+        {
+            Console.Write("Entered Number is an Even Number");
+        }
+        else
+        {
+            Console.Write("Entered Number is an Odd Number");
+        }
+        Console.Read();
+
+    }
+    }
+
+output=>
+Enter The Number: 14
+Entered Number is an Even Number
+=======================================================================================================================
+2)Positive or negative
+
+code=>
+using System;
+
+     class Program
+    {
+        public static void Main(string[] args)
+        {
+        Console.Write("Enter The Number: ");
+        int Number = int.Parse(Console.ReadLine());
+        if (Number < 0)
+        {
+            Console.Write("Entered Number is an Negative  Number");
+        }
+        else
+        {
+            Console.Write("Entered Number is an Positive Number");
+        }
+        Console.Read();
+
+    }
+    }
+output=>
+Enter The Number: -7
+Entered Number is an Negative  Number
+=======================================================================================================================
+3)check wheather eligible for voting
+
+code=>
+using System;
+
+     class Program
+    {
+        public static void Main(string[] args)
+        {
+        Console.Write("Enter The Age : ");
+        int Number = int.Parse(Console.ReadLine());
+        if (Number >= 18)
+        {
+            Console.Write("The person is eligible for Casting the Vote");
+        }
+        else
+        {
+            Console.Write("The person is not eligible for Casting the Vote");
+        }
+        Console.Read();
+
+    }
+    }
+output=>
+Enter The Age : 21
+The person is eligible for Casting the Vote
+==========================================================================================================================
+4)Degree celcious to fahrenite
+
+code=>
+using System;
+
+     class Program
+    {
+    public static void Main(string[] args)
+    {
+        Console.Write("Enter The Temperature in Degree Celcious : ");
+        int Number = int.Parse(Console.ReadLine());
+
+        int result = Number + 273;
+
+        Console.WriteLine("The Tempeature in Fahrenite : {0} ", result);
+
+    }
+    }
+output=>
+Enter The Temperature in Degree Celcious : 27
+The Tempeature in Fahrenite : 300
+Press any key to continue . . .
+========================================================================================================================
+5)multiplication of two floating numbers
+
+code=>
+using System;
+
+     class Program
+    {
+        public static void Main(string[] args)
+        {
+        Console.Write("Enter The Number : ");
+        float n1 = Convert.ToSingle(Console.ReadLine());
+        Console.Write("Enter The Number : ");
+        float n2 = Convert.ToSingle(Console.ReadLine());
+
+        float result = n1 * n2;
+
+        Console.WriteLine("The Multiplication of Two Floating Numbers is {0} ", result);
+
+        Console.Read();
+
+    }
+    }
+
+output=>
+Enter The Number : 5.5
+Enter The Number : 2.5
+The Multiplication of Two Floating Numbers is 13.75
+==========================================================================================================================
+6)caculator=>
+
+code=>
+using System;
+using System.IO;
+
+
+class Demo
+{
+    static void Main(string[] args)
+    {
+        int num1 = int.Parse(Console.ReadLine());
+        int num2 = int.Parse(Console.ReadLine()); ;
+        int result;
+        result = num1 + num2;
+        Console.WriteLine("Value is {0}", result);
+        result = num1 - num2;
+        Console.WriteLine("Value is {0}", result);
+        result = num1 * num2;
+        Console.WriteLine("Value is {0}", result);
+        result = num1 / num2;
+        Console.WriteLine("Value is {0}", result);
+
+
+        Console.ReadLine();
+    }
+}
+
+output=>
+12
+4
+Value is 16
+Value is 8
+Value is 48
+Value is 3
+========================================================================================================================
+7)size of data types
+
+code=>
+
+using System;
+using System.IO;
+
+
+class Demo
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Size of char: " + sizeof(char));
+        Console.WriteLine("Size of Short: " + sizeof(short));
+        Console.WriteLine("Size of int: " + sizeof(int));
+        Console.WriteLine("Size of long: " + sizeof(long));
+        Console.WriteLine("Size of float: " + sizeof(float));
+        Console.WriteLine("Size of double: " + sizeof(double));
+
+
+        Console.ReadLine();
+    }
+}
+
+output=>
+Size of char: 2
+Size of Short: 2
+Size of int: 4
+Size of long: 8
+Size of float: 4
+Size of double: 8
+========================================================================================================================
+8) find ascci  value
+
+code=>
+
+using System;
+using System.IO;
+
+
+class Demo
+{
+    static void Main(string[] args)
+    {
+        char c;
+        Console.WriteLine("Enter a character: ");
+        c = Convert.ToChar(Console.ReadLine());
+        int ascii = Convert.ToInt32(c);
+        Console.WriteLine("The ASCII Value of given input is  " + ascii);
+
+
+        Console.ReadLine();
+    }
+}
+
+output=>
+Enter a character:
+d
+The ASCII Value of given input is  100
+
+======================================================================================================================
+9)area of circle
+
+code=>
+
+using System;
+using System.IO;
+
+
+class Demo
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the value of radius: ");
+        float r = Convert.ToSingle(Console.ReadLine());
+        double area = Math.PI * r * r;
+
+        Console.WriteLine("area of circle of radius " + r + " cm is  {0} sq.cm", area);
+
+        Console.ReadLine();
+    }
+}
+
+output=>
+Enter the value of radius:
+4
+area of circle of radius 4 cm is  50.2654824574367 sq.cm
+=========================================================================================================================
+10)area of square
+
+code=>
+
+using System;
+using System.IO;
+
+
+class Demo
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the length in cm: ");
+        float l = Convert.ToSingle(Console.ReadLine());
+        double area =  l * l;
+
+        Console.WriteLine("area of Square of lenghth " + l + " cm is  {0} sq.cm", area);
+
+        Console.ReadLine();
+    }
+}
+
+output=>
+Enter the length in cm:
+5.1
+area of Square of lenghth 5.1 cm is  26.0099990272522 sq.cm
+=========================================================================================================================
+11)typecasting double to integer
+
+code=>
+using System;
+using System.IO;
+
+
+class Demo
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the double value : ");
+        double d  = Convert.ToDouble(Console.ReadLine());
+        int i = Convert.ToInt32(d);
+
+        Console.WriteLine("Double Value {0}", d);
+        Console.WriteLine("Integer Value {0}", i);
+
+        Console.ReadLine();
+    }
+}
+
+output=>
+Enter the double value :
+12.34
+Double Value 12.34
+Integer Value 12
+===========================================================================================================================
+12)type cassting by inbuild methods
+
+code=>
+using System;
+using System.IO;
+
+
+class Demo
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the double value : ");
+        double d  = Convert.ToDouble(Console.ReadLine());
+        int i = Convert.ToInt32(d);
+        string s = Convert.ToString(d);
+        short a = Convert.ToInt16(d);
+        Console.WriteLine("Double Value {0}", d);
+        Console.WriteLine("Integer Value {0}", i);
+        Console.WriteLine("string Value {0}", s);
+        Console.WriteLine("short value {0}", a);
+
+        Console.WriteLine("\n\nEnter the integer value : ");
+        int x = Convert.ToInt32(Console.ReadLine());
+        string s1 = Convert.ToString(x);
+        short a1 = Convert.ToInt16(x);
+        Console.WriteLine("Integer Value {0}", x);
+        Console.WriteLine("string Value {0}", s1);
+        Console.WriteLine("short value {0}", a1);
+
+        Console.WriteLine("\n\nEnter the float value : ");
+        float f = Convert.ToSingle(Console.ReadLine());
+        int z = Convert.ToInt32(f);
+        string s2 = Convert.ToString(f);
+        short a2 = Convert.ToInt16(f);
+        Console.WriteLine("Integer Value {0}", z);
+        Console.WriteLine("string Value {0}", s2);
+        Console.WriteLine("short value {0}", a2);
+
+        Console.ReadLine();
+    }
+}
+
+output=>
+Enter the double value :
+14.99
+Double Value 14.99
+Integer Value 15
+string Value 14.99
+short value 15
+
+
+Enter the integer value :
+12
+Integer Value 12
+string Value 12
+short value 12
+
+
+Enter the float value :
+99.99
+Integer Value 100
+string Value 99.99
+short value 100
+=========================================================================================================================
+13)averrage of four numbers
+
+code=>
+using System;
+using System.IO;
+
+
+class Demo
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the first value : ");
+        double d1  = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Enter the second value : ");
+        double d2 = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Enter the third value : ");
+        double d3 = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Enter the fourth value : ");
+        double d4 = Convert.ToDouble(Console.ReadLine());
+
+        double d =(d1 + d2 + d3 + d4) / 4;
+
+        Console.WriteLine("The Average of Given four Numbers is {0} ",d);
+
+        Console.ReadLine();
+    }
+}
+
+output=>
+Enter the first value :
+2
+Enter the second value :
+4
+Enter the third value :
+8
+Enter the fourth value :
+16
+The Average of Given four Numbers is 7.5
+=======================================================================================================================
+14)charachter vowel number
+
+code=>
+class Demo
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter any character: ");
+        char c = Convert.ToChar(Console.ReadLine());
+        int i = Convert.ToInt32(c);
+
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
+        {
+            Console.WriteLine(c + " is Vowel.");
+        }
+       
+        else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+        {
+            Console.WriteLine(c + " is character");
+        }
+        else
+        {
+            Console.WriteLine(c + " is Number");
+        }
+        Console.ReadLine();
+    }
+}
+
+output=>
+Enter any character:
+9
+9 is Number
+==============================================================================================================================SSss
+
+

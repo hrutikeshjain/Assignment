@@ -1,0 +1,836 @@
+							Problem Statement 1
+==================================================================================================================================
+
+1) Define a class that requests 5 names of people from the user and stores them in an array of objects of type Person.
+Create a Person class that has a Name property of type string and override the ToString() method. 
+Display the data on the screen as shown below Enter the Person Names : Juan Sara Carlos Alex Tobia 
+Expected Output:
+Hi there ! My name is Juan 
+Hi there ! My name is Sara  
+Hi there ! My name is Carlos
+Hi there ! My name is Alex
+Hi there ! My name is Tobia
+
+Code=>
+
+using System;
+
+public class PersonInfo
+{
+    public static void Main(string[] args)
+    {
+        int total = 5;
+        Person[] persons = new Person[total];
+
+        Console.WriteLine("Enter Person's Name:");
+
+        for (int i = 0; i < total; i++)
+        {
+            persons[i] = new Person()
+            {
+                Name = Console.ReadLine()
+               
+            };
+        }
+
+        for (int i = 0; i < total; i++)
+        {
+            Console.WriteLine("Entered Person's are:");
+            Console.WriteLine(persons[i].ToString());
+        }
+
+        Console.ReadLine();
+    }
+
+    public class Person
+    {
+        public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return "Hi There! My name is " + Name;
+        }
+    }
+}
+
+o/p
+
+Enter Person's Name:
+Juan
+Sara
+Carlos
+Alex
+Tobia
+Entered Person's are:
+Hi There! My name is Juan
+Entered Person's are:
+Hi There! My name is Sara
+Entered Person's are:
+Hi There! My name is Carlos
+Entered Person's are:
+Hi There! My name is Alex
+Entered Person's are:
+Hi There! My name is Tobia
+
+========================================================================================================================
+2).Create a new C # project with three classes plus another class to test the logic in your code. 
+The main classes of the program are the following classes:
+•Person
+•Student
+•Professor
+The Student and Teacher classes inherit from the Person class.
+The Student class will include a publicStudy()method that will writeI'm studyingon the screen.
+The Person class must have two public methodsGreet()andSetAge(int age)that will assign the age of the person.
+The Teacher class will include a publicExplain()method that will writeI'm explainingon the screen.
+Also create a public methodShowAge()in the Student class that writes My age is: x years oldon the screen.
+You must create another test class called StudentProfessorTest with a Main method to do the following:
+•Create a new Person and makehim say hello
+•Create a new Student, set an age, say hello, and display her age on the screen.
+•Create a new Teacher, set an age, say hello and start the explanation.
+
+Code=>
+
+using System;
+
+public class StudentAndTeacher
+{
+    public static void Main()
+    {
+        Person myPerson = new Person();
+        myPerson.Greet();
+
+        Student myStudent = new Student();
+        myStudent.SetAge(22);
+        myStudent.Greet();
+        myStudent.ShowAge();
+        myStudent.Study();
+
+        Teacher myTeacher = new Teacher();
+        myTeacher.SetAge(30);
+        myTeacher.Greet();
+        myTeacher.Explain();
+    }
+}
+
+public class Person
+{
+    protected int age;
+
+    public void Greet()
+    {
+        Console.WriteLine("Hello!");
+    }
+
+    public void SetAge(int n)
+    {
+        age = n;
+    }
+}
+
+public class Student : Person
+{
+    public void Study()
+    {
+        Console.WriteLine("I'm studying");
+    }
+
+    public void ShowAge()
+    {
+        Console.WriteLine("My Name is Godwin \nMy age is {0} years old", age);
+    }
+}
+
+public class Teacher : Person
+{
+    public void Explain()
+    {
+        Console.WriteLine("I'm explaining");
+    }
+}
+
+o/p
+
+Hello!
+Hello!
+My Name is Godwin
+My age is 22 years old
+I'm studying
+Hello!
+I'm explaining
+
+=====================================================================================================================================
+							Problem Statement 2
+=====================================================================================================================================
+1)
+
+
+======================================================================================================================================
+2)
+
+
+==========================================================================================================================================
+3) 
+
+========================================================================================================================================
+4)
+
+=======================================================================================================================================
+5)
+
+========================================================================================================================================
+6)
+
+
+======================================================================================================================================
+7)
+
+
+=======================================================================================================================================
+							Problem Statement 3
+========================================================================================================================================
+1)
+
+=========================================================================================================================================
+2)Write a program to add “IsNumeric()” method  to string data type using extension methods.
+This method should use Regex and determine if the parameter is numeric or not
+
+using System;
+using System.Text.RegularExpressions;
+
+public static class Numeric
+{
+	public static void Main()
+	{
+		int n;
+		bool isNumeric = int.TryParse("11", out n);
+		Console.WriteLine(isNumeric);
+
+		//using Regular Expression
+		var RegexCheck = Regex.IsMatch("11", @"^\d+$");
+		Console.WriteLine(RegexCheck);
+
+		//Using Custom Method
+		Console.WriteLine(IsNumeric("Test"));
+		Console.WriteLine(IsNumeric("11.3"));
+	}
+	public static bool IsNumeric(this string s)
+	{
+		float output;
+		return float.TryParse(s, out output);
+	}
+}
+
+o/p
+
+True
+True
+False
+True
+
+=============================================================================================================================
+3)Create a C# program that implements an abstract class Animal that has a Name property of type text and three methods SetName (string name), GetName and Eat. 
+The Eat method will be an abstract method of type void. You will also need to create a Dog class that implements the above Animal class and the Eat method that says the dog is Eating.
+To test the program ask the user for a dog name andcreate a new Dog type object from the Main of the program, give the Dog object a name, and then execute the GetName and Eat methods
+
+
+using System;
+
+public class AbstractClass
+{
+    public static void Main(string[] args)
+    {
+        Dog dog = new Dog();
+        dog.SetName(Console.ReadLine());
+        Console.WriteLine(dog.GetName());
+        dog.Eat();
+    }
+
+    public class Dog : Animal
+    {
+        public override void Eat()
+        {
+            Console.WriteLine("Bruce is Eating Pedgre");
+        }
+    }
+
+    public abstract class Animal
+    {
+        private string Name;
+
+        public void SetName(string name)
+        {
+            Console.WriteLine("Input Name");
+            Name = name;
+        }
+
+        public string GetName()
+        {
+            
+            return Name;
+        }
+
+        public abstract void Eat();
+    }
+}
+
+
+o/p
+
+Bruce
+Input Name
+Bruce
+Bruce is Eating Pedgre
+
+=================================================================================================================
+					Problem Statement 4
+===================================================================================================================
+1)Define a delegate called as MathDelegatethat accepts 2 double parameters and returns a double
+
+using System;
+namespace Delegates
+{
+
+
+    class Delegate
+    {
+
+        public delegate void addnum(int a, int b);
+        public delegate void subnum(int a, int b);
+
+
+        public void sum(int a, int b)
+        {
+            Console.WriteLine("(100 + 40) = {0}", a + b);
+        }
+
+
+        public void subtract(int a, int b)
+        {
+            Console.WriteLine("(100 - 60) = {0}", a - b);
+        }
+
+
+        public static void Main(String[] args)
+        {
+
+
+            Delegate obj = new Delegate();
+
+
+            addnum del_obj1 = new addnum(obj.sum);
+            subnum del_obj2 = new subnum(obj.subtract);
+
+            del_obj1(100, 40);
+            del_obj2(100, 60);
+
+
+        }
+    }
+}
+
+o/p
+
+(100 + 40) = 140
+(100 - 60) = 40
+
+
+========================================================================================================================
+2) Define a class that has basic math operation methods like Add, Subtract, Multiply and Divide. 
+ Make sure that these methods are invoked via Delegate MathDelegate
+
+using System;
+namespace MathDelegate
+{
+    public delegate void MathDelegate(int No1, int No2);
+    public class Program
+    {
+        public static void Add(int x, int y)
+        {
+            Console.WriteLine("THE SUM IS : " + (x + y));
+        }
+        public static void Sub(int x, int y)
+        {
+            Console.WriteLine("THE SUB IS : " + (x - y));
+        }
+        public void Mul(int x, int y)
+        {
+            Console.WriteLine("THE MUL IS : " + (x * y));
+        }
+        public void Div(int x, int y)
+        {
+            Console.WriteLine("THE DIV IS : " + (x / y));
+        }
+        
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            MathDelegate del1 = new MathDelegate(Add);
+            MathDelegate del2 = new MathDelegate(Program.Sub);
+            MathDelegate del3 = p.Mul;
+            MathDelegate del4 = new MathDelegate(p.Div); ;
+            
+            MathDelegate del5 = del1 + del2 + del3 + del4;
+            del5.Invoke(20, 5);
+            Console.WriteLine();
+           
+
+            Console.ReadLine();
+        }
+    }
+}
+
+o/p
+
+THE SUM IS : 25
+THE SUB IS : 15
+THE MUL IS : 100
+THE DIV IS : 4
+
+========================================================================================================================
+3) Define a GoodBye and SayHello Methods that accept string arg. Invoke both the methods using a Multicast Delegate.
+
+using System;
+
+
+delegate void CustomDel(string s);
+
+class MulticastDelegate
+{
+    
+    static void Hello(string s)
+    {
+        Console.WriteLine($"  Hello, {s}!");
+    }
+
+    static void Goodbye(string s)
+    {
+        Console.WriteLine($"  Goodbye, {s}!");
+    }
+
+    static void Main()
+    {
+        
+        CustomDel hiDel, byeDel, multiDel, multiMinusHiDel;
+
+        
+        hiDel = Hello;
+
+       
+        byeDel = Goodbye;
+
+        multiDel = hiDel + byeDel;
+
+        multiMinusHiDel = multiDel - hiDel;
+
+        Console.WriteLine("Invoking delegate hiDel:");
+        hiDel("A");
+        Console.WriteLine("Invoking delegate byeDel:");
+        byeDel("B");
+        Console.WriteLine("Invoking delegate multiDel:");
+        multiDel("C");
+        Console.WriteLine("Invoking delegate multiMinusHiDel:");
+        multiMinusHiDel("D");
+    }
+}
+
+o/p
+
+Invoking delegate hiDel:
+  Hello, A!
+Invoking delegate byeDel:
+  Goodbye, B!
+Invoking delegate multiDel:
+  Hello, C!
+  Goodbye, C!
+Invoking delegate multiMinusHiDel:
+  Goodbye, D!
+===================================================================================================================
+4) 
+
+===========================================================================================================================
+5)
+
+===========================================================================================================================
+					Problem Statement 5
+==========================================================================================================================
+1)Write a C# program that uses a pointer that gives the address of a variable x. 
+Try to compile the program and observe the compiler errors. 
+Use the unsafe switch option while compiling and try again
+
+
+using System;
+
+namespace UnsafeCodeApplication
+{
+    class Program
+    {
+        static unsafe void Main(string[] args)
+        {
+            int var = 20;
+            int* p = &var;
+
+            Console.WriteLine("Data is: {0} ", var);
+            Console.WriteLine("Address is: {0}", (int)p);
+            Console.ReadLine();
+        }
+    }
+}
+
+o/p
+
+Data is: 20
+Address is: -1627920724
+
+=========================================================================================================================
+2)Write a program to swap 2 numbers using pointers.
+
+using System;
+
+class UnsafeEx
+{
+    static unsafe void Swap(int* X, int* Y)
+    {
+        int Z = 0;
+
+        Z = *X;
+        *X = *Y;
+        *Y = Z;
+    }
+    static unsafe void Main(string[] args)
+    {
+        int A = 10;
+        int B = 20;
+
+        Console.WriteLine("Before Swapping:");
+        Console.WriteLine("\tA: " + A);
+        Console.WriteLine("\tB: " + B);
+
+        Swap(&A, &B);
+
+        Console.WriteLine("After Swapping:");
+        Console.WriteLine("\tA: " + A);
+        Console.WriteLine("\tB: " + B);
+    }
+}
+
+o/p
+
+Before Swapping:
+        A: 10
+        B: 20
+After Swapping:
+        A: 20
+        B: 10
+
+=====================================================================================================================
+					Problem Statement 6
+======================================================================================================================
+1)Write a program that has a global variableof type int whose initial value is 10. Define a ReadData() method for readingand displayingthe value of the global variable.
+Define a WriteData() method for updating the variable x.
+
+using System;
+class Person
+{
+    private string _name = "N/A";
+    private int _age = 0;
+
+    
+    public string Name
+    {
+        get
+        {
+            return _name;
+        }
+        set
+        {
+            _name = value;
+        }
+    }
+
+    public int Age
+    {
+        get
+        {
+            return _age;
+        }
+
+        set
+        {
+            _age = value;
+        }
+    }
+
+    public override string ToString()
+    {
+        return "Name = " + Name + ", Age = " + Age;
+    }
+}
+
+class TestPerson
+{
+    static void Main()
+    {
+        // Create a new Person object:
+        Person person = new Person();
+
+        // Print out the name and the age associated with the person:
+        Console.WriteLine("Person details - {0}", person);
+
+        // Set some values on the person object:
+        person.Name = "Jack";
+        person.Age = 30;
+        Console.WriteLine("Person details - {0}", person);
+
+        // Increment the Age property:
+        person.Age += 1;
+        Console.WriteLine("Person details - {0}", person);
+
+        // Keep the console window open in debug mode.
+        Console.WriteLine("Press any key to exit.");
+        Console.ReadLine();
+    }
+}
+
+o/p
+
+Person details - Name = N/A, Age = 0
+Person details - Name = Jack, Age = 30
+Person details - Name = Jack, Age = 31
+Press any key to exit.
+
+===================================================================================================================
+2) Write a program using threads to run the methods parallelly and checkifyou canwrite / read the value for the variable.
+
+using System;
+using System.Threading;
+namespace thread
+{
+    class Program
+    {
+        public static void Write1()
+        {
+            Console.Write('1');
+            Thread.Sleep(500);
+        }
+        static void Main(string[] args)
+        {
+            var task = new Thread(Write1);
+            task.Start();
+            for (var i = 0; i < 10; i++)
+            {
+                Console.Write('0');
+                Console.Write(task.IsAlive ? 'A' : 'D');
+                Thread.Sleep(150);
+            }
+            Console.ReadLine();
+        }
+    }
+}
+
+==============================================================================================================================
+3) Implement thread synchronization techniques to ensure that you canread and write data to the global variable without any race conditions
+
+using System;
+using System.Threading;
+namespace RaceCondition
+{
+    class Akshay
+    {
+        int result = 0;
+        AutoResetEvent event1 = new AutoResetEvent(false);
+        AutoResetEvent event2 = new AutoResetEvent(false);
+        AutoResetEvent event3 = new AutoResetEvent(false);
+        void Work1()
+        {
+            WaitHandle.WaitAll(new WaitHandle[] { event2, event3 });
+            result = 1;
+            event1.Set();
+        }
+        void Work2() { result = 2; event2.Set(); }
+        void Work3() { result = 3; event3.Set(); }
+        static void Main(string[] args)
+        {
+            Akshay a = new Akshay();
+            Thread worker1 = new Thread(a.Work1);
+            Thread worker2 = new Thread(a.Work2);
+            Thread worker3 = new Thread(a.Work3);
+            WaitHandle[] waitHandles = new WaitHandle[] { a.event2, a.event3 };
+            worker1.Start();
+            worker2.Start();
+            worker3.Start();
+            WaitHandle.WaitAny(new WaitHandle[] { a.event1 });
+            Console.WriteLine(a.result);
+            Console.Read();
+        }
+    }
+}
+
+=====================================================================================================================
+					Problem Statement 7
+==================================================================================================================
+1)Write a program to determine the number of constructors defined in a class and display all the constructor args.
+
+using System;
+namespace DefaultConstractor
+{
+    class addition
+    {
+        int a, b;
+        public addition()  
+        {
+            a = 100;
+            b = 175;
+        }
+
+        public static void Main()
+        {
+            addition obj = new addition();
+            Console.WriteLine(obj.a);
+            Console.WriteLine(obj.b);
+            Console.ReadLine();
+        }
+    }
+}
+
+============================================================================================================================
+2)Write a program to determine the number of static methods defined in a class and print their names
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+namespace TestClass
+{
+    class Program
+    {
+        public int calculation(int x, int y)
+        {
+            int val = x * y;
+            return val;
+        }
+        static void Main(string[] args)
+        {
+            Program x = new Program();
+            int newval = x.calculation(12, 12);
+            Console.WriteLine(newval);
+            Console.ReadLine();
+        }
+    }
+}
+
+================================================================================================================================
+3)Write a program to determine if the given class is sealed or no
+
+using System;
+
+
+
+sealed class Myclass
+{
+    public void Show()
+    {
+        Console.WriteLine("Hey! Checking Class Sealed or Not");
+    }
+}
+
+
+class SealorNot
+{
+
+    public static void Main(string[] args)
+    {
+
+        
+        if (typeof(Myclass).IsSealed == true)
+        {
+            Console.WriteLine("The given class is a sealed class");
+        }
+        else
+        {
+            Console.WriteLine("The given class is not a sealed class");
+        }
+    }
+}
+
+========================================================================================================
+4) Write a program to determine if the given class is abstract or not
+
+using System;
+
+
+
+abstract class Abstract
+{
+
+
+    public abstract void AbstractMethod();
+}
+
+class GFG
+{
+
+    static void Main()
+    {
+        
+        if (typeof(Abstract).IsAbstract == true)
+        {
+            Console.WriteLine("This is abstract");
+        }
+        else
+        {
+            Console.WriteLine("This is not abstract");
+        }
+    }
+}
+
+==================================================================================================================
+5)Write a program to implement late binding using Reflection.
+
+using System;
+using System.Reflection;
+
+namespace LateBinding
+{
+
+    class Program
+    {
+
+       
+        static void Main(string[] args)
+        {
+            
+            Assembly executing = Assembly.GetExecutingAssembly();
+
+           
+            Type studentType = executing.GetType("LateBinding.Student");
+
+            
+            object studentObject = Activator.CreateInstance(studentType);
+
+            
+            MethodInfo getMethod = studentType.GetMethod("GetDetails");
+
+            
+            String[] param = new String[2];
+            param[0] = "101";
+            param[1] = "Godwin";
+
+           
+            String det = (String)getMethod.Invoke(studentObject, param);
+            Console.WriteLine("Student Details : ");
+            Console.WriteLine("Roll Number - Name \n{0}", det);
+
+        } 
+
+    } 
+
+    public class Student
+    {
+
+        public String GetDetails(String RollNumber, String Name)
+        {
+            return RollNumber + " - " + Name;
+        }
+
+    } 
+
+}
